@@ -6,6 +6,18 @@ This is a Java web application built using:
 - Servlets
 - JSP
 - MySQL
+- 
+## 🚀 Features
+- Add/Edit/Delete Medicine entries
+- DAO pattern for DB interaction
+- Input validation using JSP/Servlet
+
+## 📦 Technologies Used
+- Java (JSP, Servlets)
+- MySQL
+- JDBC
+- Apache Tomcat
+- Eclipse IDE
 
 ## 📁 Folder Structure
 
@@ -21,4 +33,5 @@ This is a Java web application built using:
    - Run table creation scripts (use your own schema)
 3. Configure DB credentials in `DBConnection.java`
 4. Run on Apache Tomcat server
+
 
