@@ -6,7 +6,7 @@ This is a Java web application built using:
 - Servlets
 - JSP
 - MySQL
-- 
+  
 ## 🚀 Features
 - Add/Edit/Delete Medicine entries
 - DAO pattern for DB interaction
