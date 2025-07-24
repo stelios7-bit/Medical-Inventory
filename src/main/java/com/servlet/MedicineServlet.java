@@ -24,7 +24,7 @@ public class MedicineServlet extends HttpServlet {
         MedicineDAO dao = new MedicineDAO();
 
         if ("loadForEdit".equals(action)) {
-            // --- LOGIC FOR EDIT ---
+         
             try {
                 int id = Integer.parseInt(request.getParameter("itemId"));
                 Medicine medicineToEdit = dao.getMedicineById(id);
@@ -32,11 +32,11 @@ public class MedicineServlet extends HttpServlet {
                 request.getRequestDispatcher("editMedicine.jsp").forward(request, response);
             } catch (NumberFormatException e) {
                 e.printStackTrace();
-                response.sendRedirect("MedicineServlet"); // Redirect home on error
+                response.sendRedirect("MedicineServlet"); 
             }
             
         } else {
-            // --- ORIGINAL LOGIC TO VIEW ALL ---
+           
             List<Medicine> medicineList = dao.getAllMedicines();
             request.setAttribute("medicineList", medicineList);
             request.getRequestDispatcher("inventory.jsp").forward(request, response);
@@ -68,29 +68,19 @@ public class MedicineServlet extends HttpServlet {
                     Medicine newMed = new Medicine(0, itemName, batchNumber, expDate, quantity, suppName, new Date(System.currentTimeMillis()));
                     dao.addMedicine(newMed);
                     
-                    response.sendRedirect("MedicineServlet"); // Redirect to the GET method to view all
-                    break;
-
-                case "delete":
-                    // 1. Get the ID to delete
-                    int idToDelete = Integer.parseInt(request.getParameter("itemId"));
-                    
-                    // 2. Create a dummy Medicine object with only the ID
-                    Medicine medToDelete = new Medicine(idToDelete, null, null, null, 0, null, null);
-                    
-                    // 3. Call the DAO method
-                    dao.deleteMedicine(medToDelete);
-                    
-                    // 4. Redirect
                     response.sendRedirect("MedicineServlet");
                     break;
 
-                // 'update' case can be added here similarly
-                // case "update":
-                //     handleUpdate(request, response);
-                //     break;
+                case "delete":
+                   
+                    int idToDelete = Integer.parseInt(request.getParameter("itemId"));
+                    Medicine medToDelete = new Medicine(idToDelete, null, null, null, 0, null, null);
+                    dao.deleteMedicine(medToDelete);
+                    response.sendRedirect("MedicineServlet");
+                    break;
+			    
                 case "update":
-                    // 1. Get all the updated data from the request
+                    
                     int itemId = Integer.parseInt(request.getParameter("itemId"));
                     String itemName1 = request.getParameter("itemName");
                     String batchNumber1 = request.getParameter("batchNumber");
@@ -98,13 +88,9 @@ public class MedicineServlet extends HttpServlet {
                     int quantity1 = Integer.parseInt(request.getParameter("quantity"));
                     String suppName1 = request.getParameter("suppName");
 
-                    // 2. Create a Medicine object with the updated data
                     Medicine updatedMed = new Medicine(itemId, itemName1, batchNumber1, expDate1, quantity1, suppName1, new Date(System.currentTimeMillis()));
-                    
-                    // 3. Call the new DAO method
+                   
                     dao.updateMedicine(updatedMed);
-                    
-                    // 4. Redirect to the main inventory list to see the changes
                     response.sendRedirect("MedicineServlet");
                     break;
 
