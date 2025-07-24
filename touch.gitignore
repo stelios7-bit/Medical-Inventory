@@ -1,4 +1,1 @@
-echo "/.settings/" >> .gitignore
-echo "/.classpath" >> .gitignore
-echo "/.project" >> .gitignore
-echo "/build/" >> .gitignore
+
