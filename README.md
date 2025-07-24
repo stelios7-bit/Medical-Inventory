@@ -1,4 +1,4 @@
-# Java Backend Project - Medicine Management
+# Java Backend Project - Medicine Inventory Management
 
 This is a Java web application built using:
 - JDBC
