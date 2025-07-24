@@ -8,7 +8,7 @@ public class Supplier {
     private String email;
     private String phone;
 
-    // Constructor
+    
     public Supplier(int supplierId, String supplierName, String contactPerson, String email, String phone) {
         this.supplierId = supplierId;
         this.supplierName = supplierName;
@@ -17,7 +17,6 @@ public class Supplier {
         this.phone = phone;
     }
 
-    // Getters and Setters
     public int getSupplierId() {
         return supplierId;
     }
